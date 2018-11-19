@@ -1,0 +1,10 @@
+<ul>
+  <li *ngFor="let item of items | async">
+    {{ item.name }}
+    <button type="button" (click)="delItem(item.id)" name="button">X</button>
+  </li>
+</ul>
+
+
+<input [(ngModel)]="text" placeholder="추가할 내용을 입력하세요">
+<button type="button" (click)="addItem()" name="button">추가</button>

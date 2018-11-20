@@ -8,3 +8,16 @@
 
 <input [(ngModel)]="text" placeholder="추가할 내용을 입력하세요">
 <button type="button" (click)="addItem()" name="button">추가</button>
+
+<div *ngIf="user | async as user">
+  <h1>Hello {{ user.displayName }}!</h1>
+  <ul>
+    <li>email : {{ user.email }}</li>
+    <li>phone : {{ user.phoneNumber }}</li>
+    <li>uid : {{ user.uid }}</li>
+  </ul>
+  <pre>{{ user | json }}</pre>
+</div>
+
+<button (click)="login()" type="button" name="button">login</button>
+<button (click)="logout()" type="button" name="button">logout</button>

@@ -10,11 +10,22 @@ import { FireworksService, Item } from '../fireworks.service';
 })
 export class ViewComponent implements OnInit {
   items:Observable<Item[]>;
+  user:Observable<any>;
   text:string = "";
   constructor(private fireworks :FireworksService) { }
 
   ngOnInit() {
+    this.user = this.fireworks.getUser();
     this.items = this.fireworks.getItems();
+  }
+
+
+  login(){
+    this.fireworks.login();
+  }
+
+  logout(){
+    this.fireworks.logout();
   }
 
   addItem():void{
